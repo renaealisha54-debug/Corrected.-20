@@ -1,0 +1,21 @@
+// In your InputMethodService class
+val dictionary = mapOf(
+    "bitch" to "baby",
+    "stupid" to "lovely",
+    "fuck you" to "i love you"
+)
+
+fun applyCorrection(text: String): String {
+    var corrected = text
+    dictionary.forEach { (bad, good) ->
+        corrected = corrected.replace(bad, good, ignoreCase = true)
+    }
+    return corrected
+}
+
+// Logic to trigger when user hits "Space" or "Enter"
+override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+    // Check if the current text field contains your trigger words
+    // If true, trigger your custom prompt UI
+    return super.onKeyDown(keyCode, event)
+}
