@@ -1,0 +1,12 @@
+class SendSmsWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
+    override fun doWork(): Result {
+        val phoneNumber = inputData.getString("phone")
+        val message = inputData.getString("msg")
+
+        // Use Android's SmsManager
+        val smsManager = SmsManager.getDefault()
+        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
+
+        return Result.success()
+    }
+}
