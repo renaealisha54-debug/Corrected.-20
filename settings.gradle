@@ -1,0 +1,2 @@
+rootProject.name = "Corrected"
+include ':app'
