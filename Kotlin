@@ -1,8 +1,0 @@
-val delay = scheduledTimeInMillis - System.currentTimeMillis()
-
-val sendWorkRequest = OneTimeWorkRequestBuilder<SendSmsWorker>()
-    .setInitialDelay(delay, TimeUnit.MILLISECONDS)
-    .setInputData(workDataOf("phone" to "123456789", "msg" to "Your corrected text here"))
-    .build()
-
-WorkManager.getInstance(context).enqueue(sendWorkRequest)
